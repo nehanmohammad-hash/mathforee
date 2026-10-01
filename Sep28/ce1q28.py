@@ -86,7 +86,7 @@ plt.ylabel("y-axis", fontsize=11)
 plt.legend(fontsize=11)
 
 # Save the figure
-plt.savefig("gate_ce_equation_intersection.png", dpi=300, bbox_inches="tight")
-print("\nPlot successfully saved as 'gate_ce_equation_intersection.png'.")
+plt.savefig("ce1q28.png", dpi=300, bbox_inches="tight")
+print("\nPlot successfully saved as 'ce1q28.png'.")
 
-subprocess.run(["termux-open", "gate_ce_equation_intersection.png"]);
+subprocess.run(["termux-open", "ce1q28.png"]);
