@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "listgen.h"
+#include "libs/listgen.h"
 
 int find(int query, sadish *list) {
     sadish *curr = list;
