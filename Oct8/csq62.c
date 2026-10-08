@@ -24,7 +24,7 @@ int main() {
     fclose(fp1);
     fclose(fp2);
 
-    // Perform operations directly on v1 (L1) using v2 (L2)
+    // Perform operations directly on v1 (L1)
     sadish *ptr1 = v1;
     int query;
     while (ptr1->next != NULL) {
