@@ -5,7 +5,7 @@
 
 typedef struct {
     int degree;
-    double coeffs[21]; // n <= 20, accommodating a0 through a20[cite: 3]
+    double coeffs[21]; // n <= 20, accommodating a0 through a20
 } Poly;
 
 int main() {
