@@ -8,7 +8,7 @@ int main() {
     double C = 1.0 / 21.0;
 
     // Write x and P(x) values to file for 1 <= x <= 4
-    for (double x = 1.0; x <= 4.0; x += 0.2) {
+    for (double x = 1.0; x <= 4.0; x += 0.1) {
         fprintf(fp, "%lf %lf\n", x, C * x * x);
     }
 
