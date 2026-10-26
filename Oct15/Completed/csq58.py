@@ -1,31 +1,36 @@
 # By Nehan mohammad
-# 15-October-26, Thursday, question no: probability_stem_plot
+# 15-October-26, Thursday, question no: cdf_plot
 
 import matplotlib.pyplot as plt
 import numpy as np
 import subprocess
 
-# Load data from the C-generated dat file
-data = np.loadtxt('prob_data.dat')
-x = data[:, 0]
-y = data[:, 1]
+# Define the cumulative distribution function F(x)
+def cdf(x):
+    return np.piecewise(x, 
+                        [x < 1, (x >= 1) & (x <= 4), x > 4], 
+                        [0.0, lambda x: (x**3 - 1) / 63, 1.0])
 
-# Create high-resolution stem plot
+# Generate x values across and beyond the domain
+x = np.linspace(0, 5, 500)
+y = cdf(x)
+
+# Create high-resolution plot with thin lines and grid
 plt.figure(figsize=(8, 5), dpi=300)
-markerline, stemlines, baseline = plt.stem(x, y)
-plt.setp(stemlines, linewidth=0.5, color='blue')
-plt.setp(markerline, markersize=4, color='blue')
-plt.setp(baseline, linewidth=0.5, color='red')
+plt.plot(x, y, color='blue', linewidth=0.5, label='F(x) = (x^3 - 1) / 63')
 
-plt.title('Probability Density Function Stem Plot')
+plt.title('Cumulative Distribution Function (CDF)')
 plt.xlabel('x')
-plt.ylabel('P(x)')
+plt.ylabel('F(x)')
 plt.grid(True, linestyle='--', alpha=0.6)
+plt.ylim(-0.05, 1.05)
+plt.legend()
 
-# Save and open the plot
-filename = 'prob_stem_plot.png'
+# Save the figure locally
+filename = 'cdf_plot.png'
 plt.savefig(filename, dpi=300, bbox_inches='tight')
 plt.close()
 
+# Automatically open the image via termux-open
 subprocess.run(['termux-open', filename])
 
